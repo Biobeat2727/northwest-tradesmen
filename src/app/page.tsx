@@ -1,7 +1,12 @@
+'use client';
+
 import ProjectGallery from "@/components/ProjectGallery";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-forest-dark text-foreground">
       {/* Navigation */}
@@ -15,7 +20,9 @@ export default function Home() {
               </h1>
               <p className="text-xs text-stone uppercase tracking-widest mt-1">Dan Dandurand • Sandpoint, Idaho</p>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
+
+            {/* Desktop Menu */}
+            <div className="max-md:hidden flex items-center space-x-8">
               <a href="#services" className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm">
                 Services
               </a>
@@ -32,7 +39,58 @@ export default function Home() {
                 Contact
               </a>
             </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="md:hidden text-lime p-2"
+              aria-label="Toggle menu"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
+              </svg>
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {mobileMenuOpen && (
+            <div className="md:hidden py-4 border-t border-lime/20">
+              <div className="flex flex-col space-y-4">
+                <a
+                  href="#services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                >
+                  Services
+                </a>
+                <a
+                  href="#projects"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                >
+                  Portfolio
+                </a>
+                <a
+                  href="#about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                >
+                  About
+                </a>
+                <a
+                  href="#contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="bg-orange hover:bg-lime text-forest-dark font-medium px-8 py-3 transition-all uppercase text-sm tracking-widest border border-orange hover:border-lime text-center"
+                >
+                  Contact
+                </a>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
@@ -93,13 +151,13 @@ export default function Home() {
           <div className="max-w-4xl">
             <div className="mb-8">
               <div className="w-16 h-1 bg-lime mb-8"></div>
-              <h2 className="text-6xl md:text-8xl font-light mb-8 leading-none tracking-tight">
+              <h2 className="text-5xl sm:text-6xl md:text-8xl font-light mb-8 leading-none tracking-tight break-words">
                 <span className="text-sand block mb-2">PRECISION</span>
                 <span className="text-lime block mb-2">CRAFTSMANSHIP</span>
                 <span className="text-orange block">REFINED</span>
               </h2>
             </div>
-            <p className="text-2xl md:text-3xl text-stone font-light mb-4 max-w-2xl leading-relaxed">
+            <p className="text-xl sm:text-2xl md:text-3xl text-stone font-light mb-4 max-w-2xl leading-relaxed">
               Expert remodeling, tile work, and custom carpentry for North Idaho homes
             </p>
             <p className="text-lime font-light mb-3 uppercase tracking-widest text-sm border-l-2 border-lime pl-4">
