@@ -117,10 +117,10 @@ export default function ProjectGallery() {
   return (
     <div>
       {/* Filter Buttons */}
-      <div className="flex justify-center gap-6 mb-16">
+      <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
         <button
           onClick={() => setFilter("all")}
-          className={`px-8 py-3 font-light uppercase text-sm tracking-widest transition-all border ${
+          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
             filter === "all"
               ? "bg-lime text-forest-dark border-lime"
               : "bg-transparent text-sand border-stone/30 hover:border-lime"
@@ -130,7 +130,7 @@ export default function ProjectGallery() {
         </button>
         <button
           onClick={() => setFilter("bathroom")}
-          className={`px-8 py-3 font-light uppercase text-sm tracking-widest transition-all border ${
+          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
             filter === "bathroom"
               ? "bg-orange text-forest-dark border-orange"
               : "bg-transparent text-sand border-stone/30 hover:border-orange"
@@ -140,7 +140,7 @@ export default function ProjectGallery() {
         </button>
         <button
           onClick={() => setFilter("tile")}
-          className={`px-8 py-3 font-light uppercase text-sm tracking-widest transition-all border ${
+          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
             filter === "tile"
               ? "bg-lime text-forest-dark border-lime"
               : "bg-transparent text-sand border-stone/30 hover:border-lime"
@@ -151,7 +151,7 @@ export default function ProjectGallery() {
       </div>
 
       {/* Project Grid */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredProjects.map((project) => (
           <div
             key={project.id}
@@ -188,9 +188,9 @@ export default function ProjectGallery() {
               </div>
             </div>
 
-            <div className="p-8">
-              <h3 className="text-2xl font-light text-sand mb-3 tracking-tight">{project.title}</h3>
-              <p className="text-stone font-light leading-relaxed mb-4">{project.description}</p>
+            <div className="p-4 sm:p-6 md:p-8">
+              <h3 className="text-xl sm:text-2xl font-light text-sand mb-2 sm:mb-3 tracking-tight">{project.title}</h3>
+              <p className="text-sm sm:text-base text-stone font-light leading-relaxed mb-3 sm:mb-4">{project.description}</p>
               <div className="flex items-center text-lime font-light uppercase text-xs tracking-widest group-hover:text-orange transition-colors">
                 View Gallery
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -205,29 +205,29 @@ export default function ProjectGallery() {
       {/* Modal */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-2 sm:p-4"
           onClick={closeModal}
         >
           <div
-            className="relative max-w-7xl w-full max-h-[90vh] bg-forest-dark border-2 border-lime/20"
+            className="relative max-w-7xl w-full max-h-[95vh] sm:max-h-[90vh] bg-forest-dark border border-lime/20 sm:border-2 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-4 right-4 z-10 bg-orange hover:bg-lime text-forest-dark p-3 transition-colors border border-orange hover:border-lime"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-orange hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
               aria-label="Close gallery"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
 
-            <div className="grid md:grid-cols-2 h-full">
+            <div className="grid md:grid-cols-2 h-full overflow-y-auto">
               {/* Image Gallery Side */}
-              <div className="relative bg-gradient-to-br from-pine to-forest border-r border-lime/20">
+              <div className="relative bg-gradient-to-br from-pine to-forest md:border-r border-lime/20">
                 {/* Main Image */}
-                <div className="relative h-full min-h-[400px] md:min-h-[600px]">
+                <div className="relative h-full min-h-[300px] sm:min-h-[400px] md:min-h-[600px]">
                   <Image
                     src={selectedProject.images[currentImageIndex]}
                     alt={`${selectedProject.title} - Photo ${currentImageIndex + 1}`}
@@ -241,19 +241,19 @@ export default function ProjectGallery() {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-3 transition-colors border border-orange hover:border-lime"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
                         aria-label="Previous image"
                       >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-3 transition-colors border border-orange hover:border-lime"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
                         aria-label="Next image"
                       >
-                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                         </svg>
                       </button>
@@ -297,8 +297,8 @@ export default function ProjectGallery() {
               </div>
 
               {/* Project Details Side */}
-              <div className="p-8 md:p-12 overflow-y-auto max-h-[90vh]">
-                <div className="w-16 h-1 bg-orange mb-6"></div>
+              <div className="p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
+                <div className="w-12 sm:w-16 h-1 bg-orange mb-4 sm:mb-6"></div>
 
                 {/* Category Badge */}
                 <div className="mb-6">
@@ -311,21 +311,21 @@ export default function ProjectGallery() {
                   </div>
                 </div>
 
-                <h2 className="text-4xl font-light text-sand mb-6 tracking-tight">{selectedProject.title}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-sand mb-4 sm:mb-6 tracking-tight">{selectedProject.title}</h2>
 
-                <div className="mb-8 pb-8 border-b border-stone/20">
-                  <h3 className="text-lime text-lg font-medium mb-4 uppercase tracking-wide">Project Overview</h3>
-                  <p className="text-sand font-light leading-relaxed text-lg mb-4">{selectedProject.description}</p>
-                  <p className="text-stone font-light leading-relaxed">{selectedProject.details}</p>
+                <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-stone/20">
+                  <h3 className="text-lime text-base sm:text-lg font-medium mb-3 sm:mb-4 uppercase tracking-wide">Project Overview</h3>
+                  <p className="text-sand font-light leading-relaxed text-base sm:text-lg mb-3 sm:mb-4">{selectedProject.description}</p>
+                  <p className="text-stone font-light leading-relaxed text-sm sm:text-base">{selectedProject.details}</p>
                 </div>
 
-                <div className="mb-8 pb-8 border-b border-stone/20">
-                  <h4 className="text-orange font-medium mb-3 uppercase tracking-wide text-sm">Materials Used</h4>
-                  <p className="text-stone font-light leading-relaxed">{selectedProject.materials}</p>
+                <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-stone/20">
+                  <h4 className="text-orange font-medium mb-2 sm:mb-3 uppercase tracking-wide text-xs sm:text-sm">Materials Used</h4>
+                  <p className="text-stone font-light leading-relaxed text-sm sm:text-base">{selectedProject.materials}</p>
                 </div>
 
                 <div>
-                  <h4 className="text-lime font-medium mb-4 uppercase tracking-wide text-sm">Scope of Work</h4>
+                  <h4 className="text-lime font-medium mb-3 sm:mb-4 uppercase tracking-wide text-xs sm:text-sm">Scope of Work</h4>
                   <ul className="space-y-3">
                     {selectedProject.scope.map((item, index) => (
                       <li key={index} className="flex items-start border-l-2 border-orange/30 pl-4 py-1">
