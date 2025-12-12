@@ -1,6 +1,7 @@
 'use client';
 
 import ProjectGallery from "@/components/ProjectGallery";
+import HeroCarousel from "@/components/HeroCarousel";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -94,97 +95,74 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-b from-pine via-forest to-forest-dark min-h-[85vh] flex items-center overflow-hidden">
-        {/* Sophisticated Tile Pattern Background */}
-        <div className="absolute inset-0">
-          {/* Hexagonal Tile Pattern */}
-          <div className="absolute inset-0 opacity-[0.08]" style={{
-            backgroundImage: `
-              linear-gradient(30deg, transparent 73%, rgba(164, 214, 94, 0.4) 75%, rgba(164, 214, 94, 0.4) 76%, transparent 77%, transparent),
-              linear-gradient(150deg, transparent 73%, rgba(164, 214, 94, 0.4) 75%, rgba(164, 214, 94, 0.4) 76%, transparent 77%, transparent),
-              linear-gradient(30deg, transparent 73%, rgba(164, 214, 94, 0.4) 75%, rgba(164, 214, 94, 0.4) 76%, transparent 77%, transparent),
-              linear-gradient(150deg, transparent 73%, rgba(164, 214, 94, 0.4) 75%, rgba(164, 214, 94, 0.4) 76%, transparent 77%, transparent)
-            `,
-            backgroundSize: '70px 120px',
-            backgroundPosition: '0 0, 0 0, 35px 60px, 35px 60px'
-          }}></div>
+      {/* Hero Section - Full Screen with Sliding Images */}
+      <section className="relative h-screen min-h-[600px] max-h-[1080px] flex items-center overflow-hidden">
+        {/* Full-Screen Sliding Carousel Background */}
+        <HeroCarousel />
 
-          {/* Subtle Herringbone Pattern */}
-          <div className="absolute inset-0 opacity-[0.06]" style={{
-            backgroundImage: `
-              linear-gradient(45deg, transparent 48%, rgba(255, 122, 61, 0.3) 49%, rgba(255, 122, 61, 0.3) 51%, transparent 52%),
-              linear-gradient(-45deg, transparent 48%, rgba(164, 214, 94, 0.2) 49%, rgba(164, 214, 94, 0.2) 51%, transparent 52%)
-            `,
-            backgroundSize: '30px 30px',
-            backgroundPosition: '0 0, 15px 15px'
-          }}></div>
+        {/* Content Overlay */}
+        <div className="relative z-20 w-full h-full flex items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="max-w-3xl">
+              {/* Brand Statement */}
+              <div className="mb-8 sm:mb-12">
+                <div className="w-16 sm:w-20 md:w-24 h-1 bg-lime mb-6 sm:mb-8"></div>
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8 leading-tight tracking-tight">
+                  <span className="text-sand block mb-2">PRECISION</span>
+                  <span className="text-lime block mb-2">CRAFTSMANSHIP</span>
+                  <span className="text-orange block">REFINED</span>
+                </h1>
+                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-sand/90 font-light leading-relaxed max-w-2xl">
+                  Expert remodeling, tile work, and custom carpentry for North Idaho homes
+                </p>
+              </div>
 
-          {/* Geometric Accent Tiles */}
-          <div className="absolute inset-0 opacity-[0.04]" style={{
-            backgroundImage: `
-              repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(164, 214, 94, 0.3) 35px, rgba(164, 214, 94, 0.3) 36px),
-              repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(255, 122, 61, 0.2) 35px, rgba(255, 122, 61, 0.2) 36px)
-            `
-          }}></div>
+              {/* Contact Information */}
+              <div className="mb-8 sm:mb-10 space-y-3 sm:space-y-4">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="w-1 h-12 sm:h-14 bg-orange"></div>
+                  <div>
+                    <p className="text-stone/80 uppercase tracking-widest text-xs mb-1">Call Now</p>
+                    <a
+                      href="tel:1234567890"
+                      className="text-2xl sm:text-3xl md:text-4xl font-light text-lime hover:text-orange transition-colors tracking-tight"
+                    >
+                      123-456-7890
+                    </a>
+                  </div>
+                </div>
+                <p className="text-lime/80 font-light uppercase tracking-widest text-xs sm:text-sm pl-4 border-l-2 border-lime/40">
+                  Sandpoint, ID & Surrounding Region
+                </p>
+              </div>
 
-          {/* Large Format Tile Grout Lines */}
-          <div className="absolute inset-0 opacity-[0.03]" style={{
-            backgroundImage: `
-              repeating-linear-gradient(0deg, transparent, transparent 200px, rgba(164, 214, 94, 0.5) 200px, rgba(164, 214, 94, 0.5) 202px),
-              repeating-linear-gradient(90deg, transparent, transparent 200px, rgba(255, 122, 61, 0.4) 200px, rgba(255, 122, 61, 0.4) 202px)
-            `
-          }}></div>
-        </div>
-
-        {/* Vertical Accent Lines */}
-        <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-lime to-transparent hidden sm:block"></div>
-        <div className="absolute right-0 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-orange to-transparent hidden sm:block"></div>
-
-        {/* Decorative Corner Accents */}
-        <div className="absolute top-0 left-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-t-2 border-lime/20"></div>
-        <div className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-t-2 border-orange/20"></div>
-        <div className="absolute bottom-0 left-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-b-2 border-orange/20"></div>
-        <div className="absolute bottom-0 right-0 w-16 h-16 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-b-2 border-lime/20"></div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
-          <div className="max-w-4xl">
-            <div className="mb-6 sm:mb-8">
-              <div className="w-12 sm:w-16 h-1 bg-lime mb-6 sm:mb-8"></div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light mb-6 sm:mb-8 leading-none tracking-tight break-words">
-                <span className="text-sand block mb-2">PRECISION</span>
-                <span className="text-lime block mb-2">CRAFTSMANSHIP</span>
-                <span className="text-orange block">REFINED</span>
-              </h2>
-            </div>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-stone font-light mb-4 max-w-2xl leading-relaxed">
-              Expert remodeling, tile work, and custom carpentry for North Idaho homes
-            </p>
-            <p className="text-lime font-light mb-3 uppercase tracking-widest text-xs sm:text-sm border-l-2 border-lime pl-3 sm:pl-4">
-              Sandpoint, ID & Surrounding Region
-            </p>
-            <p className="text-orange font-medium mb-6 sm:mb-8 uppercase tracking-widest text-xs sm:text-sm border-l-2 border-orange pl-3 sm:pl-4">
-              Free Consultation Available
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-              <a
-                href="#contact"
-                className="bg-orange hover:bg-lime text-forest-dark font-medium text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 transition-all uppercase tracking-widest border border-orange hover:border-lime inline-block text-center"
-              >
-                Request Consultation
-              </a>
-              <a
-                href="#projects"
-                className="bg-transparent hover:bg-lime/10 border border-lime text-lime font-medium text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 transition-all uppercase tracking-widest inline-block text-center"
-              >
-                View Portfolio
-              </a>
+              {/* Call to Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+                <a
+                  href="#contact"
+                  className="group bg-orange hover:bg-lime text-forest-dark font-medium text-sm sm:text-base md:text-lg px-10 sm:px-14 py-4 sm:py-5 transition-all duration-300 uppercase tracking-widest border-2 border-orange hover:border-lime inline-block text-center shadow-2xl hover:shadow-lime/20"
+                >
+                  Request Consultation
+                </a>
+                <a
+                  href="#projects"
+                  className="group bg-transparent hover:bg-lime/10 backdrop-blur-sm border-2 border-lime text-lime hover:text-lime font-medium text-sm sm:text-base md:text-lg px-10 sm:px-14 py-4 sm:py-5 transition-all duration-300 uppercase tracking-widest inline-block text-center"
+                >
+                  View Portfolio
+                </a>
+              </div>
             </div>
           </div>
         </div>
 
+        {/* Decorative Corner Accents */}
+        <div className="absolute top-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-t-2 border-lime/30 z-20"></div>
+        <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-t-2 border-orange/30 z-20"></div>
+        <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-b-2 border-orange/30 z-20"></div>
+        <div className="absolute bottom-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-b-2 border-lime/30 z-20"></div>
+
         {/* Bottom Accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime/50 to-transparent z-20"></div>
       </section>
 
       {/* Services Section */}
