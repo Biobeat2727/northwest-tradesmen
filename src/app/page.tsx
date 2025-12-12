@@ -108,9 +108,8 @@ export default function Home() {
               <div className="mb-8 sm:mb-12">
                 <div className="w-16 sm:w-20 md:w-24 h-1 bg-lime mb-6 sm:mb-8"></div>
                 <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8 leading-tight tracking-tight">
-                  <span className="text-sand block mb-2">PRECISION</span>
                   <span className="text-lime block mb-2">CRAFTSMANSHIP</span>
-                  <span className="text-orange block">REFINED</span>
+                  <span className="text-orange block">MADE FOR YOU</span>
                 </h1>
                 <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-sand/90 font-light leading-relaxed max-w-2xl">
                   Expert remodeling, tile work, and custom carpentry for North Idaho homes
@@ -127,7 +126,7 @@ export default function Home() {
                       href="tel:1234567890"
                       className="text-2xl sm:text-3xl md:text-4xl font-light text-lime hover:text-orange transition-colors tracking-tight"
                     >
-                      123-456-7890
+                      208 255 9562
                     </a>
                   </div>
                 </div>
