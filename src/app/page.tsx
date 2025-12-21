@@ -120,7 +120,7 @@ export default function Home() {
               <div className="mb-10 sm:mb-12">
                 <div className="w-20 sm:w-24 h-1.5 bg-copper mb-8"></div>
                 <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95] tracking-tight">
-                  <span className="text-white block mb-3">Sandpoint's</span>
+                  <span className="text-white block mb-3">Sandpoint&apos;s</span>
                   <span className="text-copper block mb-3">Bathroom & Tile</span>
                   <span className="text-forest block">Specialist</span>
                 </h1>
@@ -227,7 +227,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
             {/* Step 1 */}
             <div className="relative group">
-              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/10 select-none">1</div>
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/20 select-none transition-colors group-hover:text-copper/30">1</div>
               <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-copper/30 p-8 sm:p-10 h-full group-hover:border-copper transition-all">
                 <div className="w-16 h-1 bg-copper mb-6"></div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Free Consultation</h3>
@@ -239,19 +239,19 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="relative group">
-              <div className="absolute -top-6 -left-6 text-9xl font-bold text-forest/30 select-none">2</div>
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-forest/40 select-none transition-colors group-hover:text-forest/60">2</div>
               <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-forest/50 p-8 sm:p-10 h-full group-hover:border-forest transition-all">
                 <div className="w-16 h-1 bg-forest mb-6"></div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Transparent Quote</h3>
                 <p className="text-base sm:text-lg text-sand leading-relaxed">
-                  You'll receive a detailed, itemized quote with no hidden fees. We break down materials, labor, and timeline so you know exactly what to expect.
+                  You&apos;ll receive a detailed, itemized quote with no hidden fees. We break down materials, labor, and timeline so you know exactly what to expect.
                 </p>
               </div>
             </div>
 
             {/* Step 3 */}
             <div className="relative group">
-              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/10 select-none">3</div>
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/20 select-none transition-colors group-hover:text-copper/30">3</div>
               <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-copper/30 p-8 sm:p-10 h-full group-hover:border-copper transition-all">
                 <div className="w-16 h-1 bg-copper mb-6"></div>
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Expert Build</h3>
@@ -449,10 +449,10 @@ export default function Home() {
               Proudly Serving North Idaho
             </h3>
             <p className="text-lg sm:text-xl text-sand font-medium mb-6">
-              Sandpoint • Sagle • Dover • Ponderay • Coeur d'Alene
+              Sandpoint • Sagle • Dover • Ponderay • Coeur d&apos;Alene
             </p>
             <p className="text-base text-stone max-w-2xl mx-auto">
-              Located in Sandpoint, we provide professional remodeling and tile services throughout the North Idaho region. Call us to discuss your project, no matter where you're located.
+              Located in Sandpoint, we provide professional remodeling and tile services throughout the North Idaho region. Call us to discuss your project, no matter where you&apos;re located.
             </p>
           </div>
         </div>
@@ -524,7 +524,7 @@ export default function Home() {
                 </p>
 
                 <p className="text-base">
-                  Every project, whether it's a full home addition or a small repair, receives the same level of care and professional execution. Based in Sandpoint, Idaho, Dan understands the unique requirements of building in North Idaho's climate and takes pride in delivering results that last.
+                  Every project, whether it&apos;s a full home addition or a small repair, receives the same level of care and professional execution. Based in Sandpoint, Idaho, Dan understands the unique requirements of building in North Idaho&apos;s climate and takes pride in delivering results that last.
                 </p>
 
                 <div className="pt-8 border-t border-copper/30">
@@ -532,7 +532,7 @@ export default function Home() {
                     Free Consultation Available
                   </p>
                   <p className="text-sand text-base">
-                    Let's discuss your project vision and how we can bring it to life with quality craftsmanship and professional service.
+                    Let&apos;s discuss your project vision and how we can bring it to life with quality craftsmanship and professional service.
                   </p>
                 </div>
               </div>
