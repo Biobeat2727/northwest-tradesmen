@@ -15,7 +15,7 @@ export default function Home() {
           <div className="flex items-center justify-between h-20 sm:h-24">
             <div className="flex-shrink-0 min-w-0">
               <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
-                <span className="text-forest">NORTHWEST</span>{" "}
+                <span className="text-sand">NORTHWEST</span>{" "}
                 <span className="text-copper">TRADESMEN</span>
               </h1>
               <p className="text-[10px] sm:text-xs text-stone uppercase tracking-widest mt-1 truncate font-medium">Dan Dandurand • Sandpoint, Idaho</p>
@@ -323,7 +323,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
               <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Tile & Stone</h3>
+              <h3 className="text-3xl font-bold text-white mb-4 tracking-tight uppercase">Tile & Stone</h3>
               <p className="text-sand font-medium mb-6 leading-relaxed">
                 Expert installation of tile and natural stone for floors, walls, showers, and backsplashes.
               </p>
@@ -371,7 +371,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
               <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Additions</h3>
+              <h3 className="text-3xl font-bold text-white mb-4 tracking-tight uppercase">Additions</h3>
               <p className="text-sand font-medium mb-6 leading-relaxed">
                 Home additions and complete renovations to expand your living space.
               </p>
@@ -419,7 +419,7 @@ export default function Home() {
               <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
               <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Repairs</h3>
+              <h3 className="text-3xl font-bold text-white mb-4 tracking-tight uppercase">Repairs</h3>
               <p className="text-sand font-medium mb-6 leading-relaxed">
                 Professional repairs and small projects - no job too small.
               </p>
