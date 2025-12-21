@@ -117,33 +117,33 @@ export default function ProjectGallery() {
   return (
     <div>
       {/* Filter Buttons */}
-      <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-12 sm:mb-16">
+      <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-12 sm:mb-16">
         <button
           onClick={() => setFilter("all")}
-          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
+          className={`px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-widest transition-all border-2 shadow-lg ${
             filter === "all"
-              ? "bg-lime text-forest-dark border-lime"
-              : "bg-transparent text-sand border-stone/30 hover:border-lime"
+              ? "bg-copper text-white border-copper"
+              : "bg-transparent text-sand border-stone/30 hover:border-copper"
           }`}
         >
           All Projects
         </button>
         <button
           onClick={() => setFilter("bathroom")}
-          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
+          className={`px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-widest transition-all border-2 shadow-lg ${
             filter === "bathroom"
-              ? "bg-orange text-forest-dark border-orange"
-              : "bg-transparent text-sand border-stone/30 hover:border-orange"
+              ? "bg-copper text-white border-copper"
+              : "bg-transparent text-sand border-stone/30 hover:border-copper"
           }`}
         >
           Bathrooms
         </button>
         <button
           onClick={() => setFilter("tile")}
-          className={`px-4 sm:px-6 md:px-8 py-2 sm:py-3 font-light uppercase text-xs sm:text-sm tracking-widest transition-all border ${
+          className={`px-6 sm:px-8 md:px-10 py-3 sm:py-4 font-bold uppercase text-xs sm:text-sm tracking-widest transition-all border-2 shadow-lg ${
             filter === "tile"
-              ? "bg-lime text-forest-dark border-lime"
-              : "bg-transparent text-sand border-stone/30 hover:border-lime"
+              ? "bg-copper text-white border-copper"
+              : "bg-transparent text-sand border-stone/30 hover:border-copper"
           }`}
         >
           Tile Work
@@ -156,10 +156,10 @@ export default function ProjectGallery() {
           <div
             key={project.id}
             onClick={() => openModal(project)}
-            className="group relative bg-pine/30 overflow-hidden cursor-pointer transition-all border border-stone/20 hover:border-lime"
+            className="group relative bg-forest-medium/30 overflow-hidden cursor-pointer transition-all border-2 border-stone/20 hover:border-copper shadow-lg hover:shadow-copper/30"
           >
             {/* Thumbnail - First image from the project */}
-            <div className="aspect-[4/3] bg-gradient-to-br from-forest to-pine relative overflow-hidden">
+            <div className="aspect-[4/3] bg-gradient-to-br from-forest-dark to-forest-medium relative overflow-hidden">
               <Image
                 src={project.images[0]}
                 alt={project.title}
@@ -171,30 +171,26 @@ export default function ProjectGallery() {
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-colors"></div>
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="text-center">
-                  <div className="w-16 h-1 bg-lime mx-auto mb-4"></div>
-                  <p className="text-white uppercase tracking-widest text-xs font-medium">Click to View Gallery</p>
-                  <p className="text-lime text-xs mt-2 font-medium">{project.images.length} Photos</p>
+                  <div className="w-16 h-1.5 bg-copper mx-auto mb-4"></div>
+                  <p className="text-white uppercase tracking-widest text-xs font-bold">Click to View Gallery</p>
+                  <p className="text-copper text-xs mt-2 font-bold">{project.images.length} Photos</p>
                 </div>
               </div>
               {/* Category Badge */}
               <div className="absolute top-4 right-4">
-                <div className={`px-4 py-2 text-xs font-medium uppercase tracking-widest border ${
-                  project.category === "bathroom"
-                    ? "bg-orange/90 text-forest-dark border-orange"
-                    : "bg-lime/90 text-forest-dark border-lime"
-                }`}>
+                <div className="px-4 py-2 text-xs font-bold uppercase tracking-widest border-2 bg-copper/95 text-white border-copper shadow-lg">
                   {project.category === "bathroom" ? "Bathroom" : "Tile"}
                 </div>
               </div>
             </div>
 
-            <div className="p-4 sm:p-6 md:p-8">
-              <h3 className="text-xl sm:text-2xl font-light text-sand mb-2 sm:mb-3 tracking-tight">{project.title}</h3>
-              <p className="text-sm sm:text-base text-stone font-light leading-relaxed mb-3 sm:mb-4">{project.description}</p>
-              <div className="flex items-center text-lime font-light uppercase text-xs tracking-widest group-hover:text-orange transition-colors">
+            <div className="p-6 sm:p-8 bg-forest-dark/60">
+              <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 tracking-tight">{project.title}</h3>
+              <p className="text-sm sm:text-base text-sand font-medium leading-relaxed mb-4">{project.description}</p>
+              <div className="flex items-center text-copper font-bold uppercase text-xs tracking-widest group-hover:text-amber transition-colors">
                 View Gallery
                 <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 5l7 7-7 7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
@@ -209,13 +205,13 @@ export default function ProjectGallery() {
           onClick={closeModal}
         >
           <div
-            className="relative max-w-7xl w-full max-h-[95vh] sm:max-h-[90vh] bg-forest-dark border border-lime/20 sm:border-2 overflow-hidden"
+            className="relative max-w-7xl w-full max-h-[95vh] sm:max-h-[90vh] bg-forest-dark border-2 border-copper/40 overflow-hidden shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={closeModal}
-              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-orange hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
+              className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 bg-copper hover:bg-amber text-white p-2 sm:p-3 transition-colors shadow-lg font-bold"
               aria-label="Close gallery"
             >
               <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -225,7 +221,7 @@ export default function ProjectGallery() {
 
             <div className="grid md:grid-cols-2 h-full overflow-y-auto">
               {/* Image Gallery Side */}
-              <div className="relative bg-gradient-to-br from-pine to-forest md:border-r border-lime/20">
+              <div className="relative bg-gradient-to-br from-forest-dark to-forest-medium md:border-r-2 border-copper/30">
                 {/* Main Image */}
                 <div className="relative h-full min-h-[300px] sm:min-h-[400px] md:min-h-[600px]">
                   <Image
@@ -241,7 +237,7 @@ export default function ProjectGallery() {
                     <>
                       <button
                         onClick={prevImage}
-                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
+                        className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-copper hover:bg-amber text-white p-2 sm:p-3 transition-colors shadow-lg font-bold"
                         aria-label="Previous image"
                       >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -250,7 +246,7 @@ export default function ProjectGallery() {
                       </button>
                       <button
                         onClick={nextImage}
-                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-orange/90 hover:bg-lime text-forest-dark p-2 sm:p-3 transition-colors border border-orange hover:border-lime"
+                        className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-copper hover:bg-amber text-white p-2 sm:p-3 transition-colors shadow-lg font-bold"
                         aria-label="Next image"
                       >
                         <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -261,8 +257,8 @@ export default function ProjectGallery() {
                   )}
 
                   {/* Image Counter */}
-                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-forest-dark/90 border border-lime/40 px-4 py-2">
-                    <p className="text-lime font-light uppercase tracking-widest text-xs">
+                  <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-forest-dark/90 border-2 border-copper px-4 py-2">
+                    <p className="text-copper font-bold uppercase tracking-widest text-xs">
                       {currentImageIndex + 1} / {selectedProject.images.length}
                     </p>
                   </div>
@@ -278,8 +274,8 @@ export default function ProjectGallery() {
                           onClick={() => setCurrentImageIndex(index)}
                           className={`flex-shrink-0 w-16 h-16 border-2 transition-all relative overflow-hidden ${
                             index === currentImageIndex
-                              ? "border-lime"
-                              : "border-stone/30 hover:border-orange"
+                              ? "border-copper"
+                              : "border-stone/30 hover:border-copper/60"
                           }`}
                         >
                           <Image
@@ -297,39 +293,35 @@ export default function ProjectGallery() {
               </div>
 
               {/* Project Details Side */}
-              <div className="p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-h-[95vh] sm:max-h-[90vh]">
-                <div className="w-12 sm:w-16 h-1 bg-orange mb-4 sm:mb-6"></div>
+              <div className="p-4 sm:p-6 md:p-8 lg:p-12 overflow-y-auto max-h-[95vh] sm:max-h-[90vh] bg-forest-dark/95">
+                <div className="w-20 h-1.5 bg-copper mb-6"></div>
 
                 {/* Category Badge */}
                 <div className="mb-6">
-                  <div className={`inline-block px-4 py-2 text-xs font-medium uppercase tracking-widest border ${
-                    selectedProject.category === "bathroom"
-                      ? "bg-orange/90 text-forest-dark border-orange"
-                      : "bg-lime/90 text-forest-dark border-lime"
-                  }`}>
+                  <div className="inline-block px-4 py-2 text-xs font-bold uppercase tracking-widest border-2 bg-copper/95 text-white border-copper shadow-lg">
                     {selectedProject.category === "bathroom" ? "Bathroom" : "Tile"}
                   </div>
                 </div>
 
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-sand mb-4 sm:mb-6 tracking-tight">{selectedProject.title}</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">{selectedProject.title}</h2>
 
-                <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-stone/20">
-                  <h3 className="text-lime text-base sm:text-lg font-medium mb-3 sm:mb-4 uppercase tracking-wide">Project Overview</h3>
-                  <p className="text-sand font-light leading-relaxed text-base sm:text-lg mb-3 sm:mb-4">{selectedProject.description}</p>
-                  <p className="text-stone font-light leading-relaxed text-sm sm:text-base">{selectedProject.details}</p>
+                <div className="mb-8 pb-8 border-b border-copper/30">
+                  <h3 className="text-copper text-lg font-bold mb-4 uppercase tracking-wide">Project Overview</h3>
+                  <p className="text-sand font-medium leading-relaxed text-lg mb-4">{selectedProject.description}</p>
+                  <p className="text-sand font-medium leading-relaxed text-base">{selectedProject.details}</p>
                 </div>
 
-                <div className="mb-6 sm:mb-8 pb-6 sm:pb-8 border-b border-stone/20">
-                  <h4 className="text-orange font-medium mb-2 sm:mb-3 uppercase tracking-wide text-xs sm:text-sm">Materials Used</h4>
-                  <p className="text-stone font-light leading-relaxed text-sm sm:text-base">{selectedProject.materials}</p>
+                <div className="mb-8 pb-8 border-b border-copper/30">
+                  <h4 className="text-copper font-bold mb-3 uppercase tracking-wide text-sm">Materials Used</h4>
+                  <p className="text-sand font-medium leading-relaxed">{selectedProject.materials}</p>
                 </div>
 
                 <div>
-                  <h4 className="text-lime font-medium mb-3 sm:mb-4 uppercase tracking-wide text-xs sm:text-sm">Scope of Work</h4>
+                  <h4 className="text-copper font-bold mb-4 uppercase tracking-wide text-sm">Scope of Work</h4>
                   <ul className="space-y-3">
                     {selectedProject.scope.map((item, index) => (
-                      <li key={index} className="flex items-start border-l-2 border-orange/30 pl-4 py-1">
-                        <span className="text-stone font-light">{item}</span>
+                      <li key={index} className="flex items-start border-l-4 border-copper/50 pl-4 py-1">
+                        <span className="text-sand font-medium">{item}</span>
                       </li>
                     ))}
                   </ul>

@@ -1,7 +1,6 @@
 'use client';
 
 import ProjectGallery from "@/components/ProjectGallery";
-import HeroCarousel from "@/components/HeroCarousel";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -9,33 +8,33 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-forest-dark text-foreground">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="bg-forest-dark/98 backdrop-blur-md border-b border-lime/20 sticky top-0 z-50">
+      <nav className="bg-forest-dark/98 backdrop-blur-md border-b border-copper/30 sticky top-0 z-50 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20 sm:h-24">
             <div className="flex-shrink-0 min-w-0">
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight">
-                <span className="text-lime font-medium">NORTHWEST</span>{" "}
-                <span className="text-orange font-light">TRADESMEN</span>
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight">
+                <span className="text-forest">NORTHWEST</span>{" "}
+                <span className="text-copper">TRADESMEN</span>
               </h1>
-              <p className="text-[10px] sm:text-xs text-stone uppercase tracking-widest mt-1 truncate">Dan Dandurand • Sandpoint, Idaho</p>
+              <p className="text-[10px] sm:text-xs text-stone uppercase tracking-widest mt-1 truncate font-medium">Dan Dandurand • Sandpoint, Idaho</p>
             </div>
 
             {/* Desktop Menu */}
             <div className="max-md:hidden flex items-center space-x-8">
-              <a href="#services" className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm">
+              <a href="#services" className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm">
                 Services
               </a>
-              <a href="#projects" className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm">
+              <a href="#projects" className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm">
                 Portfolio
               </a>
-              <a href="#about" className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm">
+              <a href="#about" className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm">
                 About
               </a>
               <a
                 href="#contact"
-                className="bg-orange hover:bg-lime text-forest-dark font-medium px-8 py-3 transition-all uppercase text-sm tracking-widest border border-orange hover:border-lime"
+                className="bg-copper hover:bg-amber text-white font-bold px-8 py-3 transition-all uppercase text-sm tracking-widest shadow-lg hover:shadow-copper/50"
               >
                 Contact
               </a>
@@ -44,7 +43,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden text-lime p-2"
+              className="md:hidden text-copper p-2"
               aria-label="Toggle menu"
             >
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -59,33 +58,33 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {mobileMenuOpen && (
-            <div className="md:hidden py-4 border-t border-lime/20">
+            <div className="md:hidden py-4 border-t border-copper/30 bg-forest-dark">
               <div className="flex flex-col space-y-4">
                 <a
                   href="#services"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                  className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm py-2"
                 >
                   Services
                 </a>
                 <a
                   href="#projects"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                  className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm py-2"
                 >
                   Portfolio
                 </a>
                 <a
                   href="#about"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sand hover:text-lime font-light tracking-wide transition-colors uppercase text-sm py-2"
+                  className="text-sand hover:text-copper font-medium tracking-wide transition-colors uppercase text-sm py-2"
                 >
                   About
                 </a>
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="bg-orange hover:bg-lime text-forest-dark font-medium px-8 py-3 transition-all uppercase text-sm tracking-widest border border-orange hover:border-lime text-center"
+                  className="bg-copper hover:bg-amber text-white font-bold px-8 py-3 transition-all uppercase text-sm tracking-widest text-center shadow-lg"
                 >
                   Contact
                 </a>
@@ -95,101 +94,213 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Full Screen with Sliding Images */}
-      <section className="relative h-screen min-h-[600px] max-h-[1080px] flex items-center overflow-hidden">
-        {/* Full-Screen Sliding Carousel Background */}
-        <HeroCarousel />
+      {/* Hero Section - Static High-Impact Image */}
+      <section className="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden">
+        {/* Static Background Image */}
+        <div className="absolute inset-0 w-full h-full">
+          <Image
+            src="/images/projects/project-1/project-1-1.jpg"
+            alt="Professional bathroom remodeling in Sandpoint, Idaho"
+            fill
+            className="object-cover"
+            priority
+            sizes="100vw"
+            quality={90}
+          />
+          {/* Dramatic gradient overlay for readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30"></div>
+        </div>
 
         {/* Content Overlay */}
         <div className="relative z-20 w-full h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="max-w-3xl">
-              {/* Brand Statement */}
-              <div className="mb-8 sm:mb-12">
-                <div className="w-16 sm:w-20 md:w-24 h-1 bg-lime mb-6 sm:mb-8"></div>
-                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-light mb-6 sm:mb-8 leading-tight tracking-tight">
-                  <span className="text-lime block mb-2">CRAFTSMANSHIP</span>
-                  <span className="text-orange block">MADE FOR YOU</span>
+              {/* Main Headline */}
+              <div className="mb-10 sm:mb-12">
+                <div className="w-20 sm:w-24 h-1.5 bg-copper mb-8"></div>
+                <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 leading-[0.95] tracking-tight">
+                  <span className="text-white block mb-3">Sandpoint's</span>
+                  <span className="text-copper block mb-3">Bathroom & Tile</span>
+                  <span className="text-forest block">Specialist</span>
                 </h1>
-                <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-sand/90 font-light leading-relaxed max-w-2xl">
-                  Expert remodeling, tile work, and custom carpentry for North Idaho homes
+                <p className="text-xl sm:text-2xl md:text-3xl text-sand font-medium leading-relaxed max-w-2xl">
+                  Professional remodeling and custom tile work for North Idaho homes.
                 </p>
               </div>
 
-              {/* Contact Information */}
-              <div className="mb-8 sm:mb-10 space-y-3 sm:space-y-4">
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="w-1 h-12 sm:h-14 bg-orange"></div>
-                  <div>
-                    <p className="text-stone/80 uppercase tracking-widest text-xs mb-1">Call Now</p>
-                    <a
-                      href="tel:1234567890"
-                      className="text-2xl sm:text-3xl md:text-4xl font-light text-lime hover:text-orange transition-colors tracking-tight"
-                    >
-                      208 255 9562
-                    </a>
-                  </div>
-                </div>
-                <p className="text-lime/80 font-light uppercase tracking-widest text-xs sm:text-sm pl-4 border-l-2 border-lime/40">
-                  Sandpoint, ID & Surrounding Region
-                </p>
-              </div>
-
-              {/* Call to Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
+              {/* Primary CTA */}
+              <div className="mb-8 sm:mb-10">
                 <a
                   href="#contact"
-                  className="group bg-orange hover:bg-lime text-forest-dark font-medium text-sm sm:text-base md:text-lg px-10 sm:px-14 py-4 sm:py-5 transition-all duration-300 uppercase tracking-widest border-2 border-orange hover:border-lime inline-block text-center shadow-2xl hover:shadow-lime/20"
+                  className="inline-block bg-copper hover:bg-amber text-white font-bold text-base sm:text-lg md:text-xl px-12 sm:px-16 py-5 sm:py-6 transition-all duration-300 uppercase tracking-widest shadow-2xl hover:shadow-copper/50 hover:scale-105 transform"
                 >
-                  Request Consultation
+                  Get a Free Estimate
                 </a>
-                <a
-                  href="#projects"
-                  className="group bg-transparent hover:bg-lime/10 backdrop-blur-sm border-2 border-lime text-lime hover:text-lime font-medium text-sm sm:text-base md:text-lg px-10 sm:px-14 py-4 sm:py-5 transition-all duration-300 uppercase tracking-widest inline-block text-center"
-                >
-                  View Portfolio
-                </a>
+              </div>
+
+              {/* Secondary CTA - Phone */}
+              <div className="flex items-center gap-4">
+                <div className="w-1.5 h-16 bg-copper"></div>
+                <div>
+                  <p className="text-stone uppercase tracking-widest text-xs sm:text-sm mb-2 font-semibold">Or Call Now</p>
+                  <a
+                    href="tel:+12082559562"
+                    className="text-3xl sm:text-4xl md:text-5xl font-bold text-white hover:text-copper transition-colors tracking-tight"
+                  >
+                    (208) 255-9562
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Decorative Corner Accents */}
-        <div className="absolute top-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-t-2 border-lime/30 z-20"></div>
-        <div className="absolute top-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-t-2 border-orange/30 z-20"></div>
-        <div className="absolute bottom-0 left-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-l-2 border-b-2 border-orange/30 z-20"></div>
-        <div className="absolute bottom-0 right-0 w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 border-r-2 border-b-2 border-lime/30 z-20"></div>
+        {/* Decorative Corner Accent - Subtle */}
+        <div className="absolute top-0 left-0 w-24 h-24 sm:w-32 sm:h-32 border-l-4 border-t-4 border-copper/40 z-20"></div>
+        <div className="absolute bottom-0 right-0 w-24 h-24 sm:w-32 sm:h-32 border-r-4 border-b-4 border-forest/60 z-20"></div>
+      </section>
 
-        {/* Bottom Accent */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime/50 to-transparent z-20"></div>
+      {/* Trust Bar */}
+      <section className="bg-forest-dark border-y border-copper/20 py-8 sm:py-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+            {/* Licensed & Insured */}
+            <div className="flex items-center justify-center gap-4 p-6 bg-gradient-to-br from-forest-medium/30 to-pine/20 border border-copper/20">
+              <div className="flex-shrink-0">
+                <svg className="w-12 h-12 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-wide">Licensed & Insured</h3>
+                <p className="text-sm text-stone font-medium">Fully certified professional</p>
+              </div>
+            </div>
+
+            {/* Local to Sandpoint */}
+            <div className="flex items-center justify-center gap-4 p-6 bg-gradient-to-br from-forest-medium/30 to-pine/20 border border-copper/20">
+              <div className="flex-shrink-0">
+                <svg className="w-12 h-12 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-wide">Local to Sandpoint</h3>
+                <p className="text-sm text-stone font-medium">Serving North Idaho</p>
+              </div>
+            </div>
+
+            {/* Family Owned */}
+            <div className="flex items-center justify-center gap-4 p-6 bg-gradient-to-br from-forest-medium/30 to-pine/20 border border-copper/20">
+              <div className="flex-shrink-0">
+                <svg className="w-12 h-12 text-copper" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+                </svg>
+              </div>
+              <div>
+                <h3 className="text-lg sm:text-xl font-bold text-white uppercase tracking-wide">Family Owned</h3>
+                <p className="text-sm text-stone font-medium">Personal service guaranteed</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 3-Step Process Section */}
+      <section className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-background to-forest-dark relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16 sm:mb-20">
+            <div className="w-20 h-1.5 bg-copper mx-auto mb-8"></div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              <span className="text-white">Simple 3-Step</span>{" "}
+              <span className="text-copper">Process</span>
+            </h2>
+            <p className="text-xl sm:text-2xl text-sand font-medium max-w-3xl mx-auto">
+              From consultation to completion, we make remodeling straightforward
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
+            {/* Step 1 */}
+            <div className="relative group">
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/10 select-none">1</div>
+              <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-copper/30 p-8 sm:p-10 h-full group-hover:border-copper transition-all">
+                <div className="w-16 h-1 bg-copper mb-6"></div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Free Consultation</h3>
+                <p className="text-base sm:text-lg text-sand leading-relaxed">
+                  We meet at your property to discuss your vision, assess the space, and answer all your questions. No pressure, no obligation.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 2 */}
+            <div className="relative group">
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-forest/30 select-none">2</div>
+              <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-forest/50 p-8 sm:p-10 h-full group-hover:border-forest transition-all">
+                <div className="w-16 h-1 bg-forest mb-6"></div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Transparent Quote</h3>
+                <p className="text-base sm:text-lg text-sand leading-relaxed">
+                  You'll receive a detailed, itemized quote with no hidden fees. We break down materials, labor, and timeline so you know exactly what to expect.
+                </p>
+              </div>
+            </div>
+
+            {/* Step 3 */}
+            <div className="relative group">
+              <div className="absolute -top-6 -left-6 text-9xl font-bold text-copper/10 select-none">3</div>
+              <div className="relative bg-gradient-to-br from-forest-medium/40 to-pine/30 border-2 border-copper/30 p-8 sm:p-10 h-full group-hover:border-copper transition-all">
+                <div className="w-16 h-1 bg-copper mb-6"></div>
+                <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4 uppercase tracking-tight">Expert Build</h3>
+                <p className="text-base sm:text-lg text-sand leading-relaxed">
+                  Dan personally manages every project from start to finish. Quality craftsmanship, on-time completion, and communication every step of the way.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* CTA after process */}
+          <div className="text-center mt-16">
+            <a
+              href="#contact"
+              className="inline-block bg-copper hover:bg-amber text-white font-bold text-lg px-14 py-5 transition-all duration-300 uppercase tracking-widest shadow-xl hover:shadow-copper/50 hover:scale-105 transform"
+            >
+              Start Your Project Today
+            </a>
+          </div>
+        </div>
       </section>
 
       {/* Services Section */}
       <section id="services" className="py-16 sm:py-24 md:py-32 bg-forest-dark relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 sm:mb-16 md:mb-20">
-            <div className="w-12 sm:w-16 h-1 bg-orange mb-6 sm:mb-8"></div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-4 sm:mb-6 tracking-tight">
-              <span className="text-lime">SERVICES</span>
+            <div className="w-20 h-1.5 bg-copper mb-8"></div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              <span className="text-white">Our</span>{" "}
+              <span className="text-copper">Services</span>
             </h2>
-            <p className="text-lg sm:text-xl text-stone font-light max-w-2xl mb-3 sm:mb-4">
+            <p className="text-xl text-sand font-medium max-w-2xl mb-4">
               Comprehensive home improvement and remodeling services
             </p>
-            <p className="text-orange font-medium uppercase tracking-widest text-xs sm:text-sm">
+            <p className="text-copper font-bold uppercase tracking-widest text-sm">
               Free Consultation • Professional Results
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Bathroom Remodeling */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-lime/20 hover:border-lime transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-copper/30 hover:border-copper transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
 
-              <h3 className="text-3xl font-light text-lime mb-4 tracking-tight uppercase">Bathrooms</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-copper mb-4 tracking-tight uppercase">Bathrooms</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
                 Complete bathroom transformations with custom tile work, modern fixtures, and quality finishes.
               </p>
               <div className="space-y-3">
@@ -200,44 +311,20 @@ export default function Home() {
                   "Custom tile work",
                   "Heated flooring"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-orange/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
+                  <div key={index} className="flex items-start border-l-2 border-copper/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
-            {/* Kitchen Remodeling */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-orange/20 hover:border-orange transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
+            {/* Tile & Stone - Moved to 2nd position as it's a specialty */}
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-forest/50 hover:border-forest transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-light text-orange mb-4 tracking-tight uppercase">Kitchens</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
-                Kitchen upgrades from countertops to complete remodels, designed for function and beauty.
-              </p>
-              <div className="space-y-3">
-                {[
-                  "Kitchen remodels",
-                  "Counter tops",
-                  "Backsplash tile",
-                  "Cabinet installation",
-                  "Layout redesign"
-                ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-lime/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Tile & Stone */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-lime/20 hover:border-lime transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
-
-              <h3 className="text-3xl font-light text-lime mb-4 tracking-tight uppercase">Tile & Stone</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Tile & Stone</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
                 Expert installation of tile and natural stone for floors, walls, showers, and backsplashes.
               </p>
               <div className="space-y-3">
@@ -248,20 +335,44 @@ export default function Home() {
                   "Shower surrounds",
                   "Custom patterns"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-orange/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
+                  <div key={index} className="flex items-start border-l-2 border-forest/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Kitchen Remodeling */}
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-copper/30 hover:border-copper transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
+
+              <h3 className="text-3xl font-bold text-copper mb-4 tracking-tight uppercase">Kitchens</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
+                Kitchen upgrades from countertops to complete remodels, designed for function and beauty.
+              </p>
+              <div className="space-y-3">
+                {[
+                  "Kitchen remodels",
+                  "Counter tops",
+                  "Backsplash tile",
+                  "Cabinet installation",
+                  "Layout redesign"
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start border-l-2 border-copper/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Additions & Remodels */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-orange/20 hover:border-orange transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-forest/50 hover:border-forest transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-light text-orange mb-4 tracking-tight uppercase">Additions</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Additions</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
                 Home additions and complete renovations to expand your living space.
               </p>
               <div className="space-y-3">
@@ -272,20 +383,20 @@ export default function Home() {
                   "Structural work",
                   "Custom builds"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-lime/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
+                  <div key={index} className="flex items-start border-l-2 border-forest/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Outdoor Living */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-lime/20 hover:border-lime transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-copper/30 hover:border-copper transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
 
-              <h3 className="text-3xl font-light text-lime mb-4 tracking-tight uppercase">Outdoor</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-copper mb-4 tracking-tight uppercase">Outdoor</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
                 Enhance your outdoor living with custom decks, patios, and fencing.
               </p>
               <div className="space-y-3">
@@ -296,20 +407,20 @@ export default function Home() {
                   "Outdoor kitchens",
                   "Hardscaping"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-orange/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
+                  <div key={index} className="flex items-start border-l-2 border-copper/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Repairs & Small Projects */}
-            <div className="group relative bg-gradient-to-br from-pine/50 to-forest/50 p-6 sm:p-8 md:p-10 border border-orange/20 hover:border-orange transition-all">
-              <div className="absolute top-0 left-0 w-1 h-12 sm:h-16 md:h-20 bg-orange"></div>
-              <div className="absolute bottom-0 right-0 w-1 h-12 sm:h-16 md:h-20 bg-lime"></div>
+            <div className="group relative bg-gradient-to-br from-forest-medium/50 to-pine/40 p-8 sm:p-10 border-2 border-forest/50 hover:border-forest transition-all shadow-lg">
+              <div className="absolute top-0 left-0 w-1.5 h-16 sm:h-20 bg-forest"></div>
+              <div className="absolute bottom-0 right-0 w-1.5 h-16 sm:h-20 bg-copper"></div>
 
-              <h3 className="text-3xl font-light text-orange mb-4 tracking-tight uppercase">Repairs</h3>
-              <p className="text-sand font-light mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-forest mb-4 tracking-tight uppercase">Repairs</h3>
+              <p className="text-sand font-medium mb-6 leading-relaxed">
                 Professional repairs and small projects - no job too small.
               </p>
               <div className="space-y-3">
@@ -320,8 +431,8 @@ export default function Home() {
                   "Fix & upgrade",
                   "Handyman services"
                 ].map((item, index) => (
-                  <div key={index} className="flex items-start border-l-2 border-lime/30 pl-3 py-1">
-                    <span className="text-stone font-light text-sm">{item}</span>
+                  <div key={index} className="flex items-start border-l-2 border-forest/50 pl-3 py-1">
+                    <span className="text-sand font-medium text-sm">{item}</span>
                   </div>
                 ))}
               </div>
@@ -330,17 +441,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Service Area Section */}
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-copper/10 to-forest/10 border-y border-copper/30">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-tight">
+              Proudly Serving North Idaho
+            </h3>
+            <p className="text-lg sm:text-xl text-sand font-medium mb-6">
+              Sandpoint • Sagle • Dover • Ponderay • Coeur d'Alene
+            </p>
+            <p className="text-base text-stone max-w-2xl mx-auto">
+              Located in Sandpoint, we provide professional remodeling and tile services throughout the North Idaho region. Call us to discuss your project, no matter where you're located.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Gallery Section */}
-      <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-forest-dark to-pine relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent"></div>
+      <section id="projects" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-forest-dark to-background relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 sm:mb-16 md:mb-20">
-            <div className="w-12 sm:w-16 h-1 bg-lime mb-6 sm:mb-8"></div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-4 sm:mb-6 tracking-tight">
-              <span className="text-orange">PORTFOLIO</span>
+            <div className="w-20 h-1.5 bg-copper mb-8"></div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              <span className="text-white">Recent</span>{" "}
+              <span className="text-copper">Projects</span>
             </h2>
-            <p className="text-lg sm:text-xl text-stone font-light max-w-2xl">
+            <p className="text-xl text-sand font-medium max-w-2xl">
               Recent bathroom remodels and custom tile installations
             </p>
           </div>
@@ -351,17 +480,17 @@ export default function Home() {
 
       {/* About Dan Section */}
       <section id="about" className="py-16 sm:py-24 md:py-32 bg-forest-dark relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange to-transparent"></div>
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8 sm:gap-12 md:gap-16 items-center mb-12 sm:mb-16 md:mb-20">
             {/* Photo Section */}
             <div className="relative">
-              <div className="absolute top-0 left-0 w-16 sm:w-20 md:w-24 h-1 bg-lime"></div>
-              <div className="absolute bottom-0 right-0 w-16 sm:w-20 md:w-24 h-1 bg-orange"></div>
+              <div className="absolute top-0 left-0 w-20 h-1.5 bg-copper"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-1.5 bg-forest"></div>
 
-              {/* Dan's Photo */}
-              <div className="aspect-[3/4] border border-lime/20 relative overflow-hidden mt-4 sm:mt-6 mb-4 sm:mb-6">
+              {/* Dan's Photo - Ready for real photo */}
+              <div className="aspect-[3/4] border-2 border-copper/30 relative overflow-hidden mt-6 mb-6 shadow-2xl">
                 <Image
                   src="/images/dan.jpg"
                   alt="Dan Dandurand - Owner & Lead Craftsman at Northwest Tradesmen"
@@ -371,38 +500,38 @@ export default function Home() {
                 />
               </div>
 
-              <div className="border-l-2 border-lime/40 pl-4 sm:pl-6">
-                <p className="text-lime font-medium uppercase tracking-widest text-xs sm:text-sm mb-2">Owner & Lead Craftsman</p>
-                <p className="text-sand text-xl sm:text-2xl font-light">Dan Dandurand</p>
+              <div className="border-l-4 border-copper pl-6">
+                <p className="text-copper font-bold uppercase tracking-widest text-sm mb-2">Owner & Lead Craftsman</p>
+                <p className="text-white text-2xl sm:text-3xl font-bold">Dan Dandurand</p>
               </div>
             </div>
 
             {/* Bio Section */}
             <div>
-              <div className="w-12 sm:w-16 h-1 bg-orange mb-6 sm:mb-8"></div>
-              <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-6 sm:mb-8 tracking-tight">
-                <span className="text-lime block mb-2">MEET</span>
-                <span className="text-orange">DAN</span>
+              <div className="w-20 h-1.5 bg-copper mb-8"></div>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-8 tracking-tight">
+                <span className="text-white block mb-2">Meet</span>
+                <span className="text-copper">Dan</span>
               </h2>
 
-              <div className="space-y-4 sm:space-y-6 text-sand font-light leading-relaxed">
-                <p className="text-lg sm:text-xl">
+              <div className="space-y-6 text-sand leading-relaxed">
+                <p className="text-xl font-medium">
                   Northwest Tradesmen is built on a foundation of quality craftsmanship, honest service, and attention to detail.
                 </p>
 
-                <p className="text-sm sm:text-base">
+                <p className="text-base">
                   With years of experience in residential remodeling and construction, Dan brings expertise across a wide range of projects—from complete bathroom and kitchen renovations to intricate tile work, custom carpentry, and outdoor living spaces.
                 </p>
 
-                <p className="text-sm sm:text-base">
+                <p className="text-base">
                   Every project, whether it's a full home addition or a small repair, receives the same level of care and professional execution. Based in Sandpoint, Idaho, Dan understands the unique requirements of building in North Idaho's climate and takes pride in delivering results that last.
                 </p>
 
-                <div className="pt-6 sm:pt-8 border-t border-stone/20">
-                  <p className="text-orange font-medium uppercase tracking-widest text-xs sm:text-sm mb-3 sm:mb-4">
+                <div className="pt-8 border-t border-copper/30">
+                  <p className="text-copper font-bold uppercase tracking-widest text-sm mb-4">
                     Free Consultation Available
                   </p>
-                  <p className="text-stone text-sm sm:text-base">
+                  <p className="text-sand text-base">
                     Let's discuss your project vision and how we can bring it to life with quality craftsmanship and professional service.
                   </p>
                 </div>
@@ -411,7 +540,7 @@ export default function Home() {
           </div>
 
           {/* Why Choose Section */}
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 pt-12 sm:pt-16 border-t border-stone/20">
+          <div className="grid md:grid-cols-3 gap-8 pt-16 border-t border-copper/30">
             {[
               {
                 title: "Master Craftsmanship",
@@ -426,9 +555,9 @@ export default function Home() {
                 desc: "From design consultation to final cleanup, comprehensive project management"
               }
             ].map((item, index) => (
-              <div key={index} className="border-l-2 border-lime/40 pl-4 sm:pl-6">
-                <h3 className="text-lg sm:text-xl font-medium text-orange mb-2 sm:mb-3 uppercase tracking-wide">{item.title}</h3>
-                <p className="text-stone font-light leading-relaxed text-sm sm:text-base">{item.desc}</p>
+              <div key={index} className="border-l-4 border-copper/50 pl-6">
+                <h3 className="text-xl font-bold text-copper mb-3 uppercase tracking-wide">{item.title}</h3>
+                <p className="text-sand font-medium leading-relaxed">{item.desc}</p>
               </div>
             ))}
           </div>
@@ -436,85 +565,71 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-pine to-forest-dark relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-lime to-transparent"></div>
+      <section id="contact" className="py-16 sm:py-24 md:py-32 bg-gradient-to-b from-background to-forest-dark relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-copper to-transparent"></div>
 
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 sm:mb-16">
-            <div className="w-12 sm:w-16 h-1 bg-lime mb-6 sm:mb-8"></div>
-            <h2 className="text-4xl sm:text-5xl md:text-6xl font-light mb-4 sm:mb-6 tracking-tight">
-              <span className="text-lime">GET</span>{" "}
-              <span className="text-orange">STARTED</span>
+            <div className="w-20 h-1.5 bg-copper mb-8"></div>
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+              <span className="text-white">Get Your</span>{" "}
+              <span className="text-copper">Free Estimate</span>
             </h2>
-            <p className="text-lg sm:text-xl text-sand font-light mb-2">
+            <p className="text-xl text-sand font-medium mb-4">
               Request your free consultation and project estimate
             </p>
-            <p className="text-stone font-light uppercase tracking-widest text-xs sm:text-sm border-l-2 border-lime pl-3 sm:pl-4 mt-3 sm:mt-4">
+            <p className="text-stone font-medium uppercase tracking-widest text-sm border-l-4 border-copper pl-4 mt-4">
               Serving Sandpoint, ID and North Idaho Region
             </p>
           </div>
 
-          <div className="relative bg-forest-dark/80 p-4 sm:p-6 md:p-8 lg:p-12 border border-lime/20">
-            <div className="absolute top-0 right-0 w-24 sm:w-32 md:w-40 h-1 bg-orange"></div>
+          <div className="relative bg-forest-dark/90 p-8 sm:p-10 md:p-12 lg:p-14 border-2 border-copper/30 shadow-2xl">
+            <div className="absolute top-0 right-0 w-32 h-1.5 bg-copper"></div>
 
-            <form className="space-y-6 sm:space-y-8">
-              <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
+            <form className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
                 <div>
-                  <label htmlFor="name" className="block text-xs font-medium text-lime mb-2 sm:mb-3 uppercase tracking-widest">
-                    Name
+                  <label htmlFor="name" className="block text-sm font-bold text-copper mb-3 uppercase tracking-wide">
+                    Name *
                   </label>
                   <input
                     type="text"
                     id="name"
                     name="name"
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-pine/50 border border-stone/30 focus:border-lime text-sand placeholder-stone/50 font-light transition-colors text-sm sm:text-base"
+                    className="w-full px-6 py-4 bg-pine/50 border-2 border-stone/30 focus:border-copper text-white placeholder-stone/50 font-medium transition-colors text-base"
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="phone" className="block text-xs font-medium text-lime mb-2 sm:mb-3 uppercase tracking-widest">
-                    Phone
+                  <label htmlFor="phone" className="block text-sm font-bold text-copper mb-3 uppercase tracking-wide">
+                    Phone *
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     required
-                    className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-pine/50 border border-stone/30 focus:border-lime text-sand placeholder-stone/50 font-light transition-colors text-sm sm:text-base"
+                    className="w-full px-6 py-4 bg-pine/50 border-2 border-stone/30 focus:border-copper text-white placeholder-stone/50 font-medium transition-colors text-base"
                     placeholder="(208) 555-0123"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-xs font-medium text-lime mb-2 sm:mb-3 uppercase tracking-widest">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-pine/50 border border-stone/30 focus:border-lime text-sand placeholder-stone/50 font-light transition-colors text-sm sm:text-base"
-                  placeholder="your.email@example.com"
-                />
-              </div>
-
-              <div>
-                <label htmlFor="service" className="block text-xs font-medium text-lime mb-2 sm:mb-3 uppercase tracking-widest">
-                  Service Type
+                <label htmlFor="service" className="block text-sm font-bold text-copper mb-3 uppercase tracking-wide">
+                  Project Type *
                 </label>
                 <select
                   id="service"
                   name="service"
                   required
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-pine/50 border border-stone/30 focus:border-lime text-sand font-light transition-colors text-sm sm:text-base"
+                  className="w-full px-6 py-4 bg-pine/50 border-2 border-stone/30 focus:border-copper text-white font-medium transition-colors text-base"
                 >
-                  <option value="">Select service type</option>
+                  <option value="">Select project type</option>
                   <option value="bathroom">Bathroom Remodel</option>
-                  <option value="kitchen">Kitchen Remodel</option>
                   <option value="tile">Tile & Stone Installation</option>
+                  <option value="kitchen">Kitchen Remodel</option>
                   <option value="addition">Addition/Renovation</option>
                   <option value="outdoor">Deck/Patio/Fence</option>
                   <option value="repair">Repair/Small Project</option>
@@ -523,47 +638,44 @@ export default function Home() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-xs font-medium text-lime mb-2 sm:mb-3 uppercase tracking-widest">
-                  Project Details
+                <label htmlFor="message" className="block text-sm font-bold text-copper mb-3 uppercase tracking-wide">
+                  Message *
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   rows={6}
                   required
-                  className="w-full px-4 sm:px-6 py-3 sm:py-4 bg-pine/50 border border-stone/30 focus:border-lime text-sand placeholder-stone/50 font-light transition-colors leading-relaxed text-sm sm:text-base"
-                  placeholder="Describe your project vision, timeline, and any specific requirements..."
+                  className="w-full px-6 py-4 bg-pine/50 border-2 border-stone/30 focus:border-copper text-white placeholder-stone/50 font-medium transition-colors leading-relaxed text-base"
+                  placeholder="Tell us about your project..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-orange hover:bg-lime text-forest-dark font-medium text-sm sm:text-base px-8 sm:px-12 py-4 sm:py-5 transition-all uppercase tracking-widest border border-orange hover:border-lime"
+                className="w-full bg-copper hover:bg-amber text-white font-bold text-lg px-12 py-5 transition-all uppercase tracking-widest shadow-xl hover:shadow-copper/50 hover:scale-105 transform"
               >
-                Request Free Consultation
+                Get Free Estimate
               </button>
             </form>
 
-            <div className="mt-8 sm:mt-12 pt-8 sm:pt-12 border-t border-stone/20">
-              <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-                <div className="border-l-2 border-lime/40 pl-4 sm:pl-6">
-                  <p className="text-xs text-stone uppercase tracking-widest mb-2">Phone</p>
-                  <p className="text-xl sm:text-2xl font-light text-lime">
-                    <a href="tel:+12345678900" className="hover:text-orange transition-colors">
-                      (123) 456-7890
-                    </a>
-                  </p>
-                </div>
-                <div className="border-l-2 border-orange/40 pl-4 sm:pl-6">
-                  <p className="text-xs text-stone uppercase tracking-widest mb-2">Email</p>
-                  <p className="text-base sm:text-lg font-light text-sand break-all sm:break-normal">
-                    <a href="mailto:info@northwesttradesmen.com" className="hover:text-orange transition-colors">
-                      info@northwesttradesmen.com
-                    </a>
-                  </p>
-                </div>
+            <div className="mt-10 sm:mt-12 pt-10 sm:pt-12 border-t border-copper/30">
+              <div className="text-center mb-8">
+                <p className="text-sm text-stone uppercase tracking-widest mb-3 font-semibold">Or Contact Us Directly</p>
+                <a
+                  href="tel:+12082559562"
+                  className="inline-block text-3xl sm:text-4xl font-bold text-copper hover:text-amber transition-colors mb-6"
+                >
+                  (208) 255-9562
+                </a>
+                <p className="text-base text-sand">
+                  Email:{" "}
+                  <a href="mailto:info@northwesttradesmen.com" className="text-copper hover:text-amber transition-colors font-medium">
+                    info@northwesttradesmen.com
+                  </a>
+                </p>
               </div>
-              <p className="text-stone text-xs sm:text-sm font-light mt-6 sm:mt-8 text-center">
+              <p className="text-stone text-sm font-medium text-center">
                 Typical response time: 24 hours • Free consultation available
               </p>
             </div>
@@ -572,24 +684,30 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-forest-dark border-t border-lime/20 py-12 sm:py-16">
+      <footer className="bg-forest-dark border-t border-copper/30 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h3 className="text-2xl sm:text-3xl font-light tracking-tight mb-2 sm:mb-3">
-              <span className="text-lime font-medium">NORTHWEST</span>{" "}
-              <span className="text-orange font-light">TRADESMEN</span>
+            <h3 className="text-2xl sm:text-3xl font-bold tracking-tight mb-3">
+              <span className="text-forest">NORTHWEST</span>{" "}
+              <span className="text-copper">TRADESMEN</span>
             </h3>
-            <p className="text-sand font-light mb-1 uppercase tracking-widest text-[10px] sm:text-xs">Dan Dandurand</p>
-            <p className="text-stone font-light mb-1 sm:mb-2 uppercase tracking-widest text-[10px] sm:text-xs">Professional Remodeling & Custom Work</p>
-            <p className="text-stone font-light mb-6 sm:mb-8 uppercase tracking-widest text-[10px] sm:text-xs">Sandpoint, ID & North Idaho</p>
-            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12 mb-6 sm:mb-8">
-              <a href="#services" className="text-stone hover:text-lime transition-colors font-light uppercase text-[10px] sm:text-xs tracking-widest">Services</a>
-              <a href="#projects" className="text-stone hover:text-lime transition-colors font-light uppercase text-[10px] sm:text-xs tracking-widest">Portfolio</a>
-              <a href="#about" className="text-stone hover:text-lime transition-colors font-light uppercase text-[10px] sm:text-xs tracking-widest">About</a>
-              <a href="#contact" className="text-stone hover:text-lime transition-colors font-light uppercase text-[10px] sm:text-xs tracking-widest">Contact</a>
+            <p className="text-sand font-medium mb-2 uppercase tracking-widest text-xs">Dan Dandurand</p>
+            <p className="text-stone font-medium mb-2 uppercase tracking-widest text-xs">Professional Remodeling & Custom Work</p>
+            <p className="text-stone font-medium mb-4 uppercase tracking-widest text-xs">Sandpoint, ID & North Idaho</p>
+            <a
+              href="tel:+12082559562"
+              className="inline-block text-xl font-bold text-copper hover:text-amber transition-colors mb-6"
+            >
+              (208) 255-9562
+            </a>
+            <div className="flex flex-wrap justify-center gap-6 sm:gap-10 mb-6 sm:mb-8">
+              <a href="#services" className="text-stone hover:text-copper transition-colors font-medium uppercase text-xs tracking-widest">Services</a>
+              <a href="#projects" className="text-stone hover:text-copper transition-colors font-medium uppercase text-xs tracking-widest">Portfolio</a>
+              <a href="#about" className="text-stone hover:text-copper transition-colors font-medium uppercase text-xs tracking-widest">About</a>
+              <a href="#contact" className="text-stone hover:text-copper transition-colors font-medium uppercase text-xs tracking-widest">Contact</a>
             </div>
-            <div className="w-16 sm:w-24 h-px bg-gradient-to-r from-transparent via-lime to-transparent mx-auto mb-4 sm:mb-6"></div>
-            <p className="text-[10px] sm:text-xs text-stone font-light px-4">
+            <div className="w-24 h-px bg-gradient-to-r from-transparent via-copper to-transparent mx-auto mb-6"></div>
+            <p className="text-xs text-stone font-medium px-4">
               &copy; {new Date().getFullYear()} Northwest Tradesmen. All rights reserved.
             </p>
           </div>
